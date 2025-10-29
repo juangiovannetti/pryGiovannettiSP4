@@ -234,6 +234,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "frmInicio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Ventas La Milanga";
             Load += frmInicio_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();

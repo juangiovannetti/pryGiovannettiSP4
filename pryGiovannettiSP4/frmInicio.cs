@@ -24,24 +24,11 @@ namespace pryGiovannettiSP4
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            dgvDatos.Rows.Add(5);
-            dgvDatos.Rows[0].Cells[0].Value = "Julio";
-            dgvDatos.Rows[1].Cells[0].Value = "Esteban";
-            dgvDatos.Rows[2].Cells[0].Value = "Javier";
-            dgvDatos.Rows[3].Cells[0].Value = "Gonzalo";
-            dgvDatos.Rows[4].Cells[0].Value = "Alberto";
-
-            //configuro la primera columna para que sea de sólo lectura
-            dgvDatos.Columns[0].ReadOnly = true;
-
-            //Inicializamos la grilla con valor 0 en todas las posiciones
-            for (fila = 0; fila < 5; fila++)
-            {
-                for (col = 1; col < 5; col++)
-                {
-                    dgvDatos.Rows[fila].Cells[col].Value = 0;
-                }
-            }
+            dgvDatos.Rows.Add("Julio", 0, 0, 0, 0);
+            dgvDatos.Rows.Add("Esteban", 0, 0, 0, 0);
+            dgvDatos.Rows.Add("Javier", 0, 0, 0, 0);
+            dgvDatos.Rows.Add("Gonzalo", 0, 0, 0, 0);
+            dgvDatos.Rows.Add("Alberto", 0, 0, 0, 0);
         }
         private void btnValidarDatos_Click(object sender, EventArgs e)
         {
