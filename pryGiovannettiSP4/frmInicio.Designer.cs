@@ -37,6 +37,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             lblDatosDeVenta = new Label();
             dgvDatos = new DataGridView();
+            colMozos = new DataGridViewTextBoxColumn();
+            colComidas = new DataGridViewTextBoxColumn();
+            ColBebidaAlc = new DataGridViewTextBoxColumn();
+            ColBebidasSinAlc = new DataGridViewTextBoxColumn();
+            ColPostres = new DataGridViewTextBoxColumn();
             lblTotalGeneral = new Label();
             btnValidarDatos = new Button();
             btnMozo = new Button();
@@ -46,11 +51,6 @@
             lblNombreMozo = new Label();
             lblImporteTotal = new Label();
             lstResultado = new ListBox();
-            colMozos = new DataGridViewTextBoxColumn();
-            colComidas = new DataGridViewTextBoxColumn();
-            ColBebidaAlc = new DataGridViewTextBoxColumn();
-            ColBebidasSinAlc = new DataGridViewTextBoxColumn();
-            ColPostres = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
@@ -85,6 +85,52 @@
             dgvDatos.RowHeadersWidth = 51;
             dgvDatos.Size = new Size(544, 150);
             dgvDatos.TabIndex = 1;
+            // 
+            // colMozos
+            // 
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            colMozos.DefaultCellStyle = dataGridViewCellStyle2;
+            colMozos.HeaderText = "Mozos";
+            colMozos.MinimumWidth = 6;
+            colMozos.Name = "colMozos";
+            colMozos.Width = 125;
+            // 
+            // colComidas
+            // 
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            colComidas.DefaultCellStyle = dataGridViewCellStyle3;
+            colComidas.HeaderText = "Comidas";
+            colComidas.MinimumWidth = 6;
+            colComidas.Name = "colComidas";
+            colComidas.Width = 125;
+            // 
+            // ColBebidaAlc
+            // 
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            ColBebidaAlc.DefaultCellStyle = dataGridViewCellStyle4;
+            ColBebidaAlc.HeaderText = "Bebidas Con Alcohol";
+            ColBebidaAlc.MinimumWidth = 6;
+            ColBebidaAlc.Name = "ColBebidaAlc";
+            ColBebidaAlc.Width = 125;
+            // 
+            // ColBebidasSinAlc
+            // 
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            ColBebidasSinAlc.DefaultCellStyle = dataGridViewCellStyle5;
+            ColBebidasSinAlc.HeaderText = "Bebidas Sin Alcohol";
+            ColBebidasSinAlc.MinimumWidth = 6;
+            ColBebidasSinAlc.Name = "ColBebidasSinAlc";
+            ColBebidasSinAlc.Width = 125;
+            // 
+            // ColPostres
+            // 
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            ColPostres.DefaultCellStyle = dataGridViewCellStyle6;
+            ColPostres.HeaderText = "Postres";
+            ColPostres.MinimumWidth = 6;
+            ColPostres.Name = "ColPostres";
+            ColPostres.Width = 125;
             // 
             // lblTotalGeneral
             // 
@@ -147,6 +193,7 @@
             btnCerrar.TabIndex = 6;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // lblMozoDelDia
             // 
@@ -164,7 +211,7 @@
             lblNombreMozo.AutoSize = true;
             lblNombreMozo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNombreMozo.ForeColor = Color.Black;
-            lblNombreMozo.Location = new Point(161, 230);
+            lblNombreMozo.Location = new Point(146, 230);
             lblNombreMozo.Name = "lblNombreMozo";
             lblNombreMozo.Size = new Size(45, 19);
             lblNombreMozo.TabIndex = 9;
@@ -175,7 +222,7 @@
             lblImporteTotal.AutoSize = true;
             lblImporteTotal.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblImporteTotal.ForeColor = Color.Black;
-            lblImporteTotal.Location = new Point(214, 230);
+            lblImporteTotal.Location = new Point(217, 230);
             lblImporteTotal.Name = "lblImporteTotal";
             lblImporteTotal.Size = new Size(45, 19);
             lblImporteTotal.TabIndex = 10;
@@ -190,52 +237,6 @@
             lstResultado.Name = "lstResultado";
             lstResultado.Size = new Size(229, 49);
             lstResultado.TabIndex = 11;
-            // 
-            // colMozos
-            // 
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            colMozos.DefaultCellStyle = dataGridViewCellStyle2;
-            colMozos.HeaderText = "Mozos";
-            colMozos.MinimumWidth = 6;
-            colMozos.Name = "colMozos";
-            colMozos.Width = 125;
-            // 
-            // colComidas
-            // 
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            colComidas.DefaultCellStyle = dataGridViewCellStyle3;
-            colComidas.HeaderText = "Comidas";
-            colComidas.MinimumWidth = 6;
-            colComidas.Name = "colComidas";
-            colComidas.Width = 125;
-            // 
-            // ColBebidaAlc
-            // 
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            ColBebidaAlc.DefaultCellStyle = dataGridViewCellStyle4;
-            ColBebidaAlc.HeaderText = "Bebidas Con Alcohol";
-            ColBebidaAlc.MinimumWidth = 6;
-            ColBebidaAlc.Name = "ColBebidaAlc";
-            ColBebidaAlc.Width = 125;
-            // 
-            // ColBebidasSinAlc
-            // 
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            ColBebidasSinAlc.DefaultCellStyle = dataGridViewCellStyle5;
-            ColBebidasSinAlc.HeaderText = "Bebidas Sin Alcohol";
-            ColBebidasSinAlc.MinimumWidth = 6;
-            ColBebidasSinAlc.Name = "ColBebidasSinAlc";
-            ColBebidasSinAlc.Width = 125;
-            // 
-            // ColPostres
-            // 
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            ColPostres.DefaultCellStyle = dataGridViewCellStyle6;
-            ColPostres.HeaderText = "Postres";
-            ColPostres.MinimumWidth = 6;
-            ColPostres.Name = "ColPostres";
-            ColPostres.Width = 125;
             // 
             // frmInicio
             // 
